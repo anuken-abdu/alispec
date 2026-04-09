@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Аренда манипулятора в Астане — от 3 до 15 тонн | Манипуляторы</title>
+  <meta name="description" content="Аренда манипулятора в Астане. Грузоподъёмность от 3 до 15 тонн. Кран-борт, перевозка стройматериалов, контейнеров, оборудования. Работаем по Астане и в радиусе 100 км. Звоните!">
+  <meta name="keywords" content="аренда манипулятора, манипулятор Астана, кран-борт Астана, манипулятор аренда цена, заказать манипулятор, манипулятор 5 тонн, манипулятор 7 тонн, манипулятор 10 тонн, манипулятор 15 тонн, перевозка манипулятором, погрузка разгрузка, кран-манипулятор, доставка стройматериалов, перевозка контейнеров Астана, услуги манипулятора Астана, манипулятор с бортом, грузоперевозки манипулятором">
+  <meta property="og:title" content="Аренда манипулятора в Астане — от 3 до 15 тонн">
+  <meta property="og:description" content="Кран-манипулятор в Астане. Грузоподъёмность до 15 тонн, борт до 8 метров. Работаем 24/7.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #0A0A0A;
+      --black-light: #111111;
+      --black-card: #161616;
+      --white: #FFFFFF;
+      --gray: #888888;
+      --gray-light: #AAAAAA;
+      --gray-dark: #333333;
+      --yellow: #D4A017;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--gray-dark);
+    }
+    .header-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--gray-dark);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 600;
+      padding: 6px 10px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: border-color 0.3s;
+    }
+    .lang-btn:hover { border-color: var(--yellow); }
+    .lang-btn .active-lang { color: var(--white); }
+    .lang-btn .inactive-lang { color: var(--gray); }
+    .hamburger {
+      width: 44px; height: 44px;
+      background: none; border: none; cursor: pointer;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+      position: relative; z-index: 1002;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ===== FULLSCREEN MENU ===== */
+    .menu-overlay {
+      position: fixed; inset: 0;
+      background: rgba(10,10,10,0.97);
+      z-index: 1001;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    }
+    .menu-overlay.open { opacity: 1; pointer-events: all; }
+    .menu-nav { list-style: none; text-align: center; }
+    .menu-nav li { margin: 16px 0; }
+    .menu-nav a {
+      font-family: var(--font-display);
+      font-size: 36px; color: var(--white);
+      text-decoration: none; letter-spacing: 4px; transition: color 0.3s;
+    }
+    .menu-nav a:hover { color: var(--gray-light); }
+    .menu-contacts { margin-top: 40px; text-align: center; }
+    .menu-contacts a {
+      display: block; color: var(--gray-light);
+      text-decoration: none; font-size: 16px; margin: 8px 0;
+      letter-spacing: 1px; transition: color 0.3s;
+    }
+    .menu-contacts a:hover { color: var(--white); }
+
+    /* ===== HERO ===== */
+    .hero {
+      width: 100%; height: 100vh; height: 100dvh;
+      position: relative;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 80px;
+      background: var(--black) center center / cover no-repeat;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 40%, rgba(10,10,10,0.1) 100%);
+    }
+    .hero-cta {
+      position: relative; z-index: 2;
+      display: inline-block;
+      padding: 16px 40px;
+      font-family: var(--font-display);
+      font-size: 20px; letter-spacing: 3px;
+      color: var(--white); background: transparent;
+      border: 1px solid var(--yellow);
+      box-shadow: 0 0 15px rgba(212,160,23,0.15), inset 0 0 15px rgba(212,160,23,0.05);
+      text-decoration: none; transition: all 0.4s ease; cursor: pointer;
+    }
+    .hero-cta:hover {
+      box-shadow: 0 0 25px rgba(212,160,23,0.3), inset 0 0 25px rgba(212,160,23,0.08);
+    }
+
+    /* ===== SECTIONS ===== */
+    section { width: 100%; padding: 80px 20px; }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 56px);
+      letter-spacing: 4px; text-align: center; margin-bottom: 16px;
+    }
+    .section-sub {
+      text-align: center; color: var(--gray-light);
+      font-size: 14px; max-width: 600px;
+      margin: 0 auto 60px; line-height: 1.7;
+    }
+
+    /* ===== COUNTERS ===== */
+    .counters {
+      background: var(--black-light);
+      padding: 60px 20px;
+      border-top: 1px solid var(--gray-dark);
+      border-bottom: 1px solid var(--gray-dark);
+    }
+    .counters-grid {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 20px; text-align: center;
+    }
+    .counter-item h3 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 7vw, 56px);
+      letter-spacing: 2px; line-height: 1;
+    }
+    .counter-item p {
+      color: var(--gray); font-size: 12px;
+      margin-top: 8px; letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    /* ===== ТЕХНИКА ===== */
+    .cranes-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .crane-card {
+      background: var(--black-card);
+      border: 1px solid var(--gray-dark);
+      overflow: hidden; transition: border-color 0.4s, box-shadow 0.4s;
+    }
+    .crane-card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 0 20px rgba(212,160,23,0.08);
+    }
+    .crane-card-img {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover; display: block;
+      filter: grayscale(30%); transition: filter 0.4s; cursor: zoom-in;
+    }
+    .crane-card:hover .crane-card-img { filter: grayscale(0%); }
+    .crane-card-body { padding: 24px 20px; }
+    .crane-card-model {
+      font-family: var(--font-display);
+      font-size: 24px; letter-spacing: 2px; margin-bottom: 16px;
+    }
+    .crane-specs { list-style: none; margin-bottom: 20px; }
+    .crane-specs li {
+      display: flex; justify-content: space-between;
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+    }
+    .crane-specs li span:first-child { color: var(--gray); }
+    .crane-specs li span:last-child { font-weight: 600; }
+    .crane-purpose {
+      margin-top: 16px; padding: 14px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid var(--yellow);
+    }
+    .crane-purpose-title {
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--gray); margin-bottom: 8px;
+    }
+    .crane-purpose p { font-size: 13px; line-height: 1.6; color: var(--gray-light); }
+    .crane-cta {
+      display: block; text-align: center; padding: 14px;
+      font-family: var(--font-display);
+      font-size: 16px; letter-spacing: 3px;
+      color: var(--white); text-decoration: none;
+      border: 1px solid var(--yellow);
+      box-shadow: 0 0 10px rgba(212,160,23,0.1);
+      margin-top: 20px; transition: all 0.3s;
+    }
+    .crane-cta:hover { box-shadow: 0 0 20px rgba(212,160,23,0.25); }
+
+    /* ===== УСЛУГИ ===== */
+    #uslugi {
+      background: var(--black-light);
+      border-top: 1px solid var(--gray-dark);
+    }
+    .services-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .service-card {
+      padding: 32px 24px;
+      border: 1px solid var(--gray-dark);
+      background: var(--black-card); transition: border-color 0.3s;
+    }
+    .service-card:hover { border-color: var(--yellow); }
+    .service-icon {
+      width: 40px; height: 40px;
+      margin-bottom: 20px; stroke: var(--white);
+    }
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px; letter-spacing: 2px; margin-bottom: 12px;
+    }
+    .service-card p { color: var(--gray); font-size: 13px; line-height: 1.7; }
+
+    /* ===== ПРЕИМУЩЕСТВА ===== */
+    .advantages-grid {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .advantage-item {
+      padding: 28px 24px;
+      border: 1px solid var(--gray-dark); transition: border-color 0.3s;
+    }
+    .advantage-item:hover { border-color: var(--yellow); }
+    .advantage-item h3 {
+      font-family: var(--font-display);
+      font-size: 18px; letter-spacing: 2px; margin-bottom: 10px;
+    }
+    .advantage-item p { color: var(--gray); font-size: 13px; line-height: 1.7; }
+
+    /* ===== ШАГИ ===== */
+    #kak-rabotaem {
+      background: var(--black-light);
+      border-top: 1px solid var(--gray-dark);
+    }
+    .steps {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 20px; text-align: center;
+    }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 48px; color: var(--gray-dark);
+      line-height: 1; margin-bottom: 14px;
+    }
+    .step h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px; }
+    .step p { color: var(--gray); font-size: 12px; line-height: 1.6; }
+
+    /* ===== КОНТАКТЫ ===== */
+    .contacts-wrap { max-width: 700px; margin: 0 auto; text-align: center; }
+    .contacts-phones { margin-bottom: 32px; }
+    .contacts-phones a {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 40px);
+      letter-spacing: 3px; color: var(--white);
+      text-decoration: none; margin: 8px 0; transition: color 0.3s;
+    }
+    .contacts-phones a:hover { color: var(--gray-light); }
+    .contacts-info { color: var(--gray); font-size: 14px; line-height: 2; }
+    .contacts-wa {
+      display: inline-block; margin-top: 32px;
+      padding: 16px 40px;
+      font-family: var(--font-display);
+      font-size: 18px; letter-spacing: 3px;
+      color: var(--white); text-decoration: none;
+      border: 1px solid var(--yellow);
+      box-shadow: 0 0 15px rgba(212,160,23,0.12);
+      transition: all 0.3s;
+    }
+    .contacts-wa:hover { box-shadow: 0 0 25px rgba(212,160,23,0.3); }
+
+    /* ===== SEO BLOCK ===== */
+    .seo-block {
+      max-width: 900px; margin: 0 auto; padding: 60px 20px;
+      color: var(--gray); font-size: 13px; line-height: 1.8;
+    }
+    .seo-block h2 {
+      font-family: var(--font-display);
+      font-size: 28px; color: var(--white);
+      letter-spacing: 3px; margin-bottom: 20px;
+    }
+    .seo-block h3 { font-size: 16px; color: var(--gray-light); margin: 24px 0 10px; }
+    .seo-block p { margin-bottom: 14px; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 32px 20px; text-align: center;
+      border-top: 1px solid var(--gray-dark);
+      color: var(--gray); font-size: 12px; letter-spacing: 1px;
+    }
+    .footer a { color: var(--gray-light); text-decoration: none; }
+    .footer-dev {
+      margin-top: 12px; font-size: 11px; color: var(--gray);
+    }
+    .footer-dev a {
+      color: var(--gray-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gray-dark);
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .footer-dev a:hover { color: var(--white); border-color: var(--yellow); }
+
+    /* ===== FAB ===== */
+    .fab { position: fixed; bottom: 24px; left: 24px; z-index: 999; }
+    .fab-main {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--black-card);
+      border: 1px solid var(--yellow);
+      box-shadow: 0 0 15px rgba(212,160,23,0.15);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .fab-main:hover { box-shadow: 0 0 25px rgba(212,160,23,0.3); }
+    .fab-main svg { width: 22px; height: 22px; stroke: var(--white); fill: none; }
+    .fab-options {
+      position: absolute; bottom: 68px; left: 0;
+      display: flex; flex-direction: column; gap: 12px;
+      opacity: 0; pointer-events: none;
+      transform: translateY(10px); transition: all 0.3s ease;
+    }
+    .fab.open .fab-options { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .fab-option {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      border: 1px solid var(--gray-dark);
+      background: var(--black-card); transition: border-color 0.3s;
+    }
+    .fab-option:hover { border-color: var(--yellow); }
+    .fab-option svg { width: 20px; height: 20px; }
+    .fab-option.wa svg { fill: #25D366; stroke: none; }
+    .fab-option.call svg { stroke: var(--white); fill: none; }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.95);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+      cursor: zoom-out;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox img {
+      max-width: 92vw; max-height: 90vh; object-fit: contain;
+      border: 1px solid var(--yellow);
+      box-shadow: 0 0 30px rgba(212,160,23,0.15);
+    }
+    .lightbox-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none; color: var(--white);
+      font-size: 32px; cursor: pointer;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: 24px; right: 24px; z-index: 998;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--black-card);
+      border: 1px solid var(--gray-dark);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, border-color 0.3s;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { border-color: var(--yellow); }
+    .scroll-top svg { width: 20px; height: 20px; stroke: var(--white); fill: none; }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .counters-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+      .cranes-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .advantages-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+      section { padding: 60px 16px; }
+      .hero { padding-bottom: 60px; }
+    }
+    @media (max-width: 420px) {
+      .header-logo { font-size: 16px; letter-spacing: 2px; }
+      .hero-cta { padding: 14px 28px; font-size: 16px; }
+      .menu-nav a { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#" class="header-logo">МАНИПУЛЯТОРЫ</a>
+    <div class="header-right">
+      <button class="lang-btn" onclick="toggleLang()">
+        <span id="lang-ru" class="active-lang">РУ</span> | <span id="lang-kz" class="inactive-lang">ҚЗ</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- FULLSCREEN MENU -->
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-nav">
+      <li><a href="#tekhnika" onclick="closeMenu()" data-ru="ТЕХНИКА" data-kz="ТЕХНИКА">ТЕХНИКА</a></li>
+      <li><a href="#uslugi" onclick="closeMenu()" data-ru="УСЛУГИ" data-kz="ҚЫЗМЕТТЕР">УСЛУГИ</a></li>
+      <li><a href="#preimushchestva" onclick="closeMenu()" data-ru="ПРЕИМУЩЕСТВА" data-kz="АРТЫҚШЫЛЫҚТАР">ПРЕИМУЩЕСТВА</a></li>
+      <li><a href="#kak-rabotaem" onclick="closeMenu()" data-ru="КАК МЫ РАБОТАЕМ" data-kz="ЖҰМЫС ТӘРТІБІ">КАК МЫ РАБОТАЕМ</a></li>
+      <li><a href="#kontakty" onclick="closeMenu()" data-ru="КОНТАКТЫ" data-kz="БАЙЛАНЫС">КОНТАКТЫ</a></li>
+    </ul>
+    <div class="menu-contacts">
+      <a href="tel:+77012104282">+7 701 210 4282</a>
+      <a href="https://wa.me/77012104282?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B0%D1%80%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BF%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D0%B0" target="_blank" data-ru="НАПИСАТЬ В WHATSAPP" data-kz="WHATSAPP ЖАЗУ">НАПИСАТЬ В WHATSAPP</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <a href="#tekhnika" class="hero-cta" data-ru="ПОСМОТРЕТЬ МАНИПУЛЯТОРЫ" data-kz="МАНИПУЛЯТОРЛАРДЫ КӨРУ">ПОСМОТРЕТЬ МАНИПУЛЯТОРЫ</a>
+  </section>
+
+  <!-- COUNTERS -->
+  <div class="counters">
+    <div class="counters-grid">
+      <div class="counter-item fade-up">
+        <h3>15 <span style="font-size:0.6em">Т</span></h3>
+        <p data-ru="Грузоподъёмность" data-kz="Жүккөтергіштік">Грузоподъёмность</p>
+      </div>
+      <div class="counter-item fade-up">
+        <h3>8 <span style="font-size:0.6em">М</span></h3>
+        <p data-ru="Длина борта" data-kz="Борт ұзындығы">Длина борта</p>
+      </div>
+      <div class="counter-item fade-up">
+        <h3>21 <span style="font-size:0.6em">М</span></h3>
+        <p data-ru="Вылет стрелы" data-kz="Жебе ұзындығы">Вылет стрелы</p>
+      </div>
+      <div class="counter-item fade-up">
+        <h3>24/7</h3>
+        <p data-ru="Режим работы" data-kz="Жұмыс режимі">Режим работы</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ТЕХНИКА -->
+  <section id="tekhnika">
+    <h2 class="section-title fade-up" data-ru="НАША ТЕХНИКА" data-kz="БІЗДІҢ ТЕХНИКА">НАША ТЕХНИКА</h2>
+    <p class="section-sub fade-up" data-ru="Кран-манипуляторы грузоподъёмностью от 3 до 15 тонн для перевозки, погрузки и разгрузки любых грузов" data-kz="Кез келген жүктерді тасымалдау, тиеу және түсіру үшін 3-тен 15 тоннаға дейінгі жүккөтергіштікті кран-манипуляторлар">Кран-манипуляторы грузоподъёмностью от 3 до 15 тонн для перевозки, погрузки и разгрузки любых грузов</p>
+
+    <div class="cranes-grid">
+
+      <!-- Манипулятор 5 тонн -->
+      <div class="crane-card fade-up">
+        <img src="images/manip-5t.jpg" alt="Манипулятор 5 тонн аренда Астана кран-борт" class="crane-card-img" loading="lazy">
+        <div class="crane-card-body">
+          <h4 class="crane-card-model" data-ru="МАНИПУЛЯТОР 5 ТОНН" data-kz="5 ТОННА МАНИПУЛЯТОР">МАНИПУЛЯТОР 5 ТОНН</h4>
+          <ul class="crane-specs">
+            <li><span data-ru="Грузоподъёмность крана" data-kz="Кран жүккөтергіштігі">Грузоподъёмность крана</span><span>5 тонн</span></li>
+            <li><span data-ru="Вылет стрелы" data-kz="Жебе ұзындығы">Вылет стрелы</span><span>10 м</span></li>
+            <li><span data-ru="Длина борта" data-kz="Борт ұзындығы">Длина борта</span><span>6 м</span></li>
+            <li><span data-ru="Грузоподъёмность борта" data-kz="Борт жүккөтергіштігі">Грузоподъёмность борта</span><span>7 тонн</span></li>
+            <li><span data-ru="Тип стрелы" data-kz="Жебе түрі">Тип стрелы</span><span data-ru="Телескопическая" data-kz="Телескопиялық">Телескопическая</span></li>
+          </ul>
+          <div class="crane-purpose">
+            <div class="crane-purpose-title" data-ru="Подходит для" data-kz="Қолдануға жарамды">Подходит для</div>
+            <p data-ru="Доставка и разгрузка стройматериалов (кирпич, блоки, поддоны), установка бетонных колец для колодцев, перевозка малых контейнеров, погрузка/разгрузка на складах, доставка оборудования в частный сектор" data-kz="Құрылыс материалдарын жеткізу және түсіру (кірпіш, блоктар, паллеттер), құдықтарға бетон сақиналарды орнату, шағын контейнерлерді тасымалдау, қоймаларда тиеу/түсіру, жеке секторға жабдықтар жеткізу">Доставка и разгрузка стройматериалов (кирпич, блоки, поддоны), установка бетонных колец для колодцев, перевозка малых контейнеров, погрузка/разгрузка на складах, доставка оборудования в частный сектор</p>
+          </div>
+          <a href="https://wa.me/77012104282?text=Здравствуйте%2C%20интересует%20манипулятор%205%20тонн" target="_blank" class="crane-cta" data-ru="ЗАКАЗАТЬ" data-kz="ТАПСЫРЫС БЕРУ">ЗАКАЗАТЬ</a>
+        </div>
+      </div>
+
+      <!-- Манипулятор 7 тонн -->
+      <div class="crane-card fade-up">
+        <img src="images/manip-7t.jpg" alt="Манипулятор 7 тонн аренда Астана кран-борт погрузка" class="crane-card-img" loading="lazy">
+        <div class="crane-card-body">
+          <h4 class="crane-card-model" data-ru="МАНИПУЛЯТОР 7 ТОНН" data-kz="7 ТОННА МАНИПУЛЯТОР">МАНИПУЛЯТОР 7 ТОНН</h4>
+          <ul class="crane-specs">
+            <li><span data-ru="Грузоподъёмность крана" data-kz="Кран жүккөтергіштігі">Грузоподъёмность крана</span><span>7 тонн</span></li>
+            <li><span data-ru="Вылет стрелы" data-kz="Жебе ұзындығы">Вылет стрелы</span><span>15 м</span></li>
+            <li><span data-ru="Длина борта" data-kz="Борт ұзындығы">Длина борта</span><span>7 м</span></li>
+            <li><span data-ru="Грузоподъёмность борта" data-kz="Борт жүккөтергіштігі">Грузоподъёмность борта</span><span>10 тонн</span></li>
+            <li><span data-ru="Тип стрелы" data-kz="Жебе түрі">Тип стрелы</span><span data-ru="Телескопическая" data-kz="Телескопиялық">Телескопическая</span></li>
+          </ul>
+          <div class="crane-purpose">
+            <div class="crane-purpose-title" data-ru="Подходит для" data-kz="Қолдануға жарамды">Подходит для</div>
+            <p data-ru="Перевозка и монтаж бытовок и вагончиков, доставка ЖБИ-изделий (плиты перекрытия, сваи), погрузка металлоконструкций, перемещение станков и промышленного оборудования, работа на строительных площадках средней сложности" data-kz="Уақытша тұрғын жайлар мен вагоншаларды тасымалдау және монтаждау, ТБЗ бұйымдарын жеткізу (жабу плиталары, қадалар), металл конструкцияларды тиеу, станоктар мен өнеркәсіптік жабдықтарды жылжыту, орташа күрделіліктегі құрылыс алаңдарында жұмыс">Перевозка и монтаж бытовок и вагончиков, доставка ЖБИ-изделий (плиты перекрытия, сваи), погрузка металлоконструкций, перемещение станков и промышленного оборудования, работа на строительных площадках средней сложности</p>
+          </div>
+          <a href="https://wa.me/77012104282?text=Здравствуйте%2C%20интересует%20манипулятор%207%20тонн" target="_blank" class="crane-cta" data-ru="ЗАКАЗАТЬ" data-kz="ТАПСЫРЫС БЕРУ">ЗАКАЗАТЬ</a>
+        </div>
+      </div>
+
+      <!-- Манипулятор 15 тонн -->
+      <div class="crane-card fade-up">
+        <img src="images/manip-15t.jpg" alt="Манипулятор 15 тонн аренда Астана тяжёлый кран-борт" class="crane-card-img" loading="lazy">
+        <div class="crane-card-body">
+          <h4 class="crane-card-model" data-ru="МАНИПУЛЯТОР 15 ТОНН" data-kz="15 ТОННА МАНИПУЛЯТОР">МАНИПУЛЯТОР 15 ТОНН</h4>
+          <ul class="crane-specs">
+            <li><span data-ru="Грузоподъёмность крана" data-kz="Кран жүккөтергіштігі">Грузоподъёмность крана</span><span>15 тонн</span></li>
+            <li><span data-ru="Вылет стрелы" data-kz="Жебе ұзындығы">Вылет стрелы</span><span>21 м</span></li>
+            <li><span data-ru="Длина борта" data-kz="Борт ұзындығы">Длина борта</span><span>8 м</span></li>
+            <li><span data-ru="Грузоподъёмность борта" data-kz="Борт жүккөтергіштігі">Грузоподъёмность борта</span><span>15 тонн</span></li>
+            <li><span data-ru="Тип стрелы" data-kz="Жебе түрі">Тип стрелы</span><span data-ru="Телескопическая Z-образная" data-kz="Телескопиялық Z-тәрізді">Телескопическая Z-образная</span></li>
+          </ul>
+          <div class="crane-purpose">
+            <div class="crane-purpose-title" data-ru="Подходит для" data-kz="Қолдануға жарамды">Подходит для</div>
+            <p data-ru="Перевозка 20- и 40-футовых контейнеров, монтаж тяжёлых металлоконструкций, доставка негабаритных грузов (трансформаторы, генераторы), работа на промышленных объектах, установка модульных зданий и блок-контейнеров" data-kz="20 және 40 футтық контейнерлерді тасымалдау, ауыр металл конструкцияларды монтаждау, габаритсіз жүктерді жеткізу (трансформаторлар, генераторлар), өнеркәсіптік объектілерде жұмыс, модульдік ғимараттар мен блок-контейнерлерді орнату">Перевозка 20- и 40-футовых контейнеров, монтаж тяжёлых металлоконструкций, доставка негабаритных грузов (трансформаторы, генераторы), работа на промышленных объектах, установка модульных зданий и блок-контейнеров</p>
+          </div>
+          <a href="https://wa.me/77012104282?text=Здравствуйте%2C%20интересует%20манипулятор%2015%20тонн" target="_blank" class="crane-cta" data-ru="ЗАКАЗАТЬ" data-kz="ТАПСЫРЫС БЕРУ">ЗАКАЗАТЬ</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section id="uslugi">
+    <h2 class="section-title fade-up" data-ru="УСЛУГИ МАНИПУЛЯТОРА" data-kz="МАНИПУЛЯТОР ҚЫЗМЕТТЕРІ">УСЛУГИ МАНИПУЛЯТОРА</h2>
+    <p class="section-sub fade-up" data-ru="Перевозка, погрузка, разгрузка и монтаж — полный спектр услуг кран-манипулятора в Астане" data-kz="Тасымалдау, тиеу, түсіру және монтаждау — Астанадағы кран-манипулятор қызметтерінің толық спектрі">Перевозка, погрузка, разгрузка и монтаж — полный спектр услуг кран-манипулятора в Астане</p>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="1" y="6" width="15" height="13" rx="2"/><path d="M16 10h4l3 3v4h-7V10z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <h3 data-ru="ДОСТАВКА СТРОЙМАТЕРИАЛОВ" data-kz="ҚҰРЫЛЫС МАТЕРИАЛДАРЫН ЖЕТКІЗУ">ДОСТАВКА СТРОЙМАТЕРИАЛОВ</h3>
+        <p data-ru="Перевозка и разгрузка кирпича, блоков, плит перекрытия, бетонных колец, металлопроката и других строительных материалов с помощью кран-манипулятора" data-kz="Кран-манипулятор көмегімен кірпіш, блоктар, жабу плиталары, бетон сақиналар, металл прокат және басқа құрылыс материалдарын тасымалдау және түсіру">Перевозка и разгрузка кирпича, блоков, плит перекрытия, бетонных колец, металлопроката и других строительных материалов с помощью кран-манипулятора</p>
+      </div>
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <h3 data-ru="ПЕРЕВОЗКА КОНТЕЙНЕРОВ" data-kz="КОНТЕЙНЕРЛЕРДІ ТАСЫМАЛДАУ">ПЕРЕВОЗКА КОНТЕЙНЕРОВ</h3>
+        <p data-ru="Погрузка, перевозка и установка 20- и 40-футовых морских контейнеров, бытовок, вагончиков и модульных конструкций на объект" data-kz="20 және 40 футтық теңіз контейнерлерін, уақытша тұрғын жайларды, вагоншаларды және модульдік конструкцияларды тиеу, тасымалдау және объектіге орнату">Погрузка, перевозка и установка 20- и 40-футовых морских контейнеров, бытовок, вагончиков и модульных конструкций на объект</p>
+      </div>
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M12 12v6M9 15h6"/></svg>
+        <h3 data-ru="МОНТАЖНЫЕ РАБОТЫ" data-kz="МОНТАЖДАУ ЖҰМЫСТАРЫ">МОНТАЖНЫЕ РАБОТЫ</h3>
+        <p data-ru="Установка бетонных колец, септиков, монтаж металлоконструкций, сборных элементов зданий, установка заборов и ограждений из ЖБИ" data-kz="Бетон сақиналарды, септиктерді орнату, металл конструкцияларды, ғимараттардың құрастырмалы элементтерін монтаждау, ТБЗ-дан қоршау және дуалдар орнату">Установка бетонных колец, септиков, монтаж металлоконструкций, сборных элементов зданий, установка заборов и ограждений из ЖБИ</p>
+      </div>
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <h3 data-ru="ПОГРУЗКА И РАЗГРУЗКА" data-kz="ТИЕУ ЖӘНЕ ТҮСІРУ">ПОГРУЗКА И РАЗГРУЗКА</h3>
+        <p data-ru="Погрузочно-разгрузочные работы на складах, торговых базах, строительных площадках. Работа с поддонами, пакетированными грузами и оборудованием" data-kz="Қоймаларда, сауда базаларында, құрылыс алаңдарында тиеу-түсіру жұмыстары. Паллеттермен, пакетталған жүктермен және жабдықтармен жұмыс">Погрузочно-разгрузочные работы на складах, торговых базах, строительных площадках. Работа с поддонами, пакетированными грузами и оборудованием</p>
+      </div>
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M2 20h20M6 20V10l6-6 6 6v10M10 20v-6h4v6"/></svg>
+        <h3 data-ru="ДОСТАВКА НА ЧАСТНЫЕ ОБЪЕКТЫ" data-kz="ЖЕКЕ ОБЪЕКТІЛЕРГЕ ЖЕТКІЗУ">ДОСТАВКА НА ЧАСТНЫЕ ОБЪЕКТЫ</h3>
+        <p data-ru="Доставка и разгрузка материалов для строительства частных домов, коттеджей, бань. Подача через забор, установка в труднодоступные места" data-kz="Жеке үйлер, коттедждер, моншалар салуға материалдарды жеткізу және түсіру. Қоршау арқылы беру, қол жетімсіз жерлерге орнату">Доставка и разгрузка материалов для строительства частных домов, коттеджей, бань. Подача через забор, установка в труднодоступные места</p>
+      </div>
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3 data-ru="СРОЧНАЯ ПОДАЧА" data-kz="ШҰҒЫЛ ЖЕТКІЗУ">СРОЧНАЯ ПОДАЧА</h3>
+        <p data-ru="Оперативная подача манипулятора на объект в кратчайшие сроки. Работаем круглосуточно без выходных по Астане и в радиусе до 100 км от города" data-kz="Манипуляторды объектіге қысқа мерзімде жедел жеткізу. Астана бойынша және қаладан 100 км радиуста демалыссыз тәулік бойы жұмыс">Оперативная подача манипулятора на объект в кратчайшие сроки. Работаем круглосуточно без выходных по Астане и в радиусе до 100 км от города</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРЕИМУЩЕСТВА -->
+  <section id="preimushchestva">
+    <h2 class="section-title fade-up" data-ru="ПОЧЕМУ ВЫБИРАЮТ НАС" data-kz="БІЗДІ НЕГЕ ТАҢДАЙДЫ">ПОЧЕМУ ВЫБИРАЮТ НАС</h2>
+    <p class="section-sub fade-up" data-ru="Надёжная техника, опытные операторы, работа по Астане и в радиусе 100 км" data-kz="Сенімді техника, тәжірибелі операторлар, Астана және 100 км радиуста жұмыс">Надёжная техника, опытные операторы, работа по Астане и в радиусе 100 км</p>
+    <div class="advantages-grid">
+      <div class="advantage-item fade-up">
+        <h3 data-ru="ТЕХНИКА ДЛЯ ЛЮБЫХ ЗАДАЧ" data-kz="КЕЗ КЕЛГЕН ТАПСЫРМАЛАРҒА ТЕХНИКА">ТЕХНИКА ДЛЯ ЛЮБЫХ ЗАДАЧ</h3>
+        <p data-ru="Манипуляторы от 5 до 15 тонн с бортами от 6 до 8 метров. Подберём технику точно под ваш груз и задачу" data-kz="5-тен 15 тоннаға дейін, 6-дан 8 метрге дейінгі борттары бар манипуляторлар. Жүгіңіз бен тапсырмаңызға дәл техника таңдаймыз">Манипуляторы от 5 до 15 тонн с бортами от 6 до 8 метров. Подберём технику точно под ваш груз и задачу</p>
+      </div>
+      <div class="advantage-item fade-up">
+        <h3 data-ru="ОПЫТНЫЕ ОПЕРАТОРЫ" data-kz="ТӘЖІРИБЕЛІ ОПЕРАТОРЛАР">ОПЫТНЫЕ ОПЕРАТОРЫ</h3>
+        <p data-ru="Все водители-операторы имеют допуски и опыт работы с кран-манипуляторами на строительных и промышленных объектах" data-kz="Барлық жүргізуші-операторлардың рұқсаттары бар және құрылыс пен өнеркәсіптік объектілерде кран-манипуляторлармен жұмыс тәжірибесі бар">Все водители-операторы имеют допуски и опыт работы с кран-манипуляторами на строительных и промышленных объектах</p>
+      </div>
+      <div class="advantage-item fade-up">
+        <h3 data-ru="БЫСТРАЯ ПОДАЧА" data-kz="ЖЫЛДАМ ЖЕТКІЗУ">БЫСТРАЯ ПОДАЧА</h3>
+        <p data-ru="Подача манипулятора на объект в течение 1–2 часов. Работаем без выходных и праздников, круглосуточно" data-kz="Манипуляторды объектіге 1-2 сағат ішінде жеткізу. Демалыс және мерекесіз, тәулік бойы жұмыс">Подача манипулятора на объект в течение 1–2 часов. Работаем без выходных и праздников, круглосуточно</p>
+      </div>
+      <div class="advantage-item fade-up">
+        <h3 data-ru="АСТАНА И ДО 100 КМ" data-kz="АСТАНА ЖӘНЕ 100 КМ ДЕЙІН">АСТАНА И ДО 100 КМ</h3>
+        <p data-ru="Работаем по всему городу Астана и в радиусе до 100 км: пригородные посёлки, дачные массивы, промышленные зоны Акмолинской области" data-kz="Астана қаласы бойынша және 100 км радиуста жұмыс: қала маңы ауылдары, саяжай массивтері, Ақмола облысының өнеркәсіптік аймақтары">Работаем по всему городу Астана и в радиусе до 100 км: пригородные посёлки, дачные массивы, промышленные зоны Акмолинской области</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК МЫ РАБОТАЕМ -->
+  <section id="kak-rabotaem">
+    <h2 class="section-title fade-up" data-ru="КАК ЗАКАЗАТЬ МАНИПУЛЯТОР" data-kz="МАНИПУЛЯТОРДЫ ҚАЛАЙ ТАПСЫРЫС БЕРУГЕ БОЛАДЫ">КАК ЗАКАЗАТЬ МАНИПУЛЯТОР</h2>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <h3 data-ru="Оставляете заявку" data-kz="Өтініш қалдырасыз">Оставляете заявку</h3>
+        <p data-ru="Звоните или пишите в WhatsApp — опишите груз и адрес" data-kz="Қоңырау шалыңыз немесе WhatsApp-қа жазыңыз — жүк пен мекен-жайды сипаттаңыз">Звоните или пишите в WhatsApp — опишите груз и адрес</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <h3 data-ru="Подбираем технику" data-kz="Техника таңдаймыз">Подбираем технику</h3>
+        <p data-ru="Определяем нужную грузоподъёмность и тип манипулятора под ваш груз" data-kz="Жүгіңізге қажетті жүккөтергіштік пен манипулятор түрін анықтаймыз">Определяем нужную грузоподъёмность и тип манипулятора под ваш груз</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <h3 data-ru="Подаём технику" data-kz="Техниканы жеткіземіз">Подаём технику</h3>
+        <p data-ru="Манипулятор прибывает на объект в согласованное время" data-kz="Манипулятор келісілген уақытта объектіге келеді">Манипулятор прибывает на объект в согласованное время</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">04</div>
+        <h3 data-ru="Выполняем работу" data-kz="Жұмысты орындаймыз">Выполняем работу</h3>
+        <p data-ru="Погрузка, перевозка и разгрузка — быстро, аккуратно и безопасно" data-kz="Тиеу, тасымалдау және түсіру — жылдам, ұқыпты және қауіпсіз">Погрузка, перевозка и разгрузка — быстро, аккуратно и безопасно</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO -->
+  <div class="seo-block">
+    <h2 data-ru="АРЕНДА МАНИПУЛЯТОРА В АСТАНЕ" data-kz="АСТАНАДА МАНИПУЛЯТОР ЖАЛДАУ">АРЕНДА МАНИПУЛЯТОРА В АСТАНЕ</h2>
+    <p data-ru="Предоставляем услуги аренды кран-манипулятора в городе Астана и в радиусе до 100 км. Манипуляторы грузоподъёмностью от 3 до 15 тонн с бортами длиной до 8 метров. Техника подходит для доставки стройматериалов, перевозки контейнеров, погрузки и разгрузки оборудования, монтажных работ на строительных площадках и промышленных объектах." data-kz="Астана қаласында және 100 км радиуста кран-манипулятор жалдау қызметтерін ұсынамыз. 3-тен 15 тоннаға дейінгі жүккөтергіштікті, 8 метрге дейінгі борттары бар манипуляторлар.">Предоставляем услуги аренды кран-манипулятора в городе Астана и в радиусе до 100 км. Манипуляторы грузоподъёмностью от 3 до 15 тонн с бортами длиной до 8 метров. Техника подходит для доставки стройматериалов, перевозки контейнеров, погрузки и разгрузки оборудования, монтажных работ на строительных площадках и промышленных объектах.</p>
+    <h3 data-ru="Кран-борт в Астане с доставкой" data-kz="Жеткізумен Астанадағы кран-борт">Кран-борт в Астане с доставкой</h3>
+    <p data-ru="Заказать манипулятор в Астане можно круглосуточно по телефону или через WhatsApp. Оперативная подача техники на строительные площадки, складские территории, частные участки и промышленные зоны. Манипуляторы 5, 7 и 15 тонн доступны для аренды с опытным оператором. Доставка стройматериалов, перевозка контейнеров, установка бетонных колец и ЖБИ." data-kz="Астанада манипуляторға тәулік бойы телефон немесе WhatsApp арқылы тапсырыс беруге болады. Құрылыс алаңдарына, қойма аумақтарына, жеке учаскелерге және өнеркәсіптік аймақтарға техниканы жедел жеткізу.">Заказать манипулятор в Астане можно круглосуточно по телефону или через WhatsApp. Оперативная подача техники на строительные площадки, складские территории, частные участки и промышленные зоны. Манипуляторы 5, 7 и 15 тонн доступны для аренды с опытным оператором. Доставка стройматериалов, перевозка контейнеров, установка бетонных колец и ЖБИ.</p>
+    <h3 data-ru="Услуги манипулятора для строительства и бизнеса" data-kz="Құрылыс және бизнес үшін манипулятор қызметтері">Услуги манипулятора для строительства и бизнеса</h3>
+    <p data-ru="Выполняем погрузочно-разгрузочные работы на строительных объектах, торговых базах, складских комплексах. Перевозка негабаритных грузов, контейнеров, металлоконструкций, поддонов и тяжёлого оборудования. Манипулятор с вылетом стрелы до 21 метра позволяет выполнять подачу груза через заборы, на крыши и в другие труднодоступные места." data-kz="Құрылыс объектілерінде, сауда базаларында, қойма кешендерінде тиеу-түсіру жұмыстарын орындаймыз. Габаритсіз жүктерді, контейнерлерді, металл конструкцияларды, паллеттерді және ауыр жабдықтарды тасымалдау.">Выполняем погрузочно-разгрузочные работы на строительных объектах, торговых базах, складских комплексах. Перевозка негабаритных грузов, контейнеров, металлоконструкций, поддонов и тяжёлого оборудования. Манипулятор с вылетом стрелы до 21 метра позволяет выполнять подачу груза через заборы, на крыши и в другие труднодоступные места.</p>
+  </div>
+
+  <!-- КОНТАКТЫ -->
+  <section id="kontakty">
+    <h2 class="section-title fade-up" data-ru="КОНТАКТЫ" data-kz="БАЙЛАНЫС">КОНТАКТЫ</h2>
+    <div class="contacts-wrap fade-up">
+      <div class="contacts-phones">
+        <a href="tel:+77012104282">+7 701 210 4282</a>
+      </div>
+      <div class="contacts-info">
+        <p data-ru="Работаем по Астане и в радиусе 100 км от города" data-kz="Астана бойынша және қаладан 100 км радиуста жұмыс істейміз">Работаем по Астане и в радиусе 100 км от города</p>
+        <p data-ru="Круглосуточно, без выходных" data-kz="Демалыссыз, тәулік бойы">Круглосуточно, без выходных</p>
+      </div>
+      <a href="https://wa.me/77012104282?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B0%D1%80%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BF%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D0%B0" target="_blank" class="contacts-wa" data-ru="НАПИСАТЬ В WHATSAPP" data-kz="WHATSAPP ЖАЗУ">НАПИСАТЬ В WHATSAPP</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 <span data-ru="Манипуляторы — аренда кран-манипулятора в Астане" data-kz="Манипуляторлар — Астанада кран-манипулятор жалдау">Манипуляторы — аренда кран-манипулятора в Астане</span></p>
+    <div class="footer-dev">Разработчик сайта — <a href="https://wa.me/77074534518" target="_blank">Anuken</a></div>
+  </footer>
+
+  <!-- FAB -->
+  <div class="fab" id="fab">
+    <div class="fab-options">
+      <a href="https://wa.me/77012104282?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B0%D1%80%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BF%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D0%B0" target="_blank" class="fab-option wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="tel:+77012104282" class="fab-option call" aria-label="Позвонить">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="var(--white)"/></svg>
+      </a>
+    </div>
+    <div class="fab-main" onclick="toggleFab()">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Закрыть">&times;</button>
+    <img src="" alt="" id="lightboxImg">
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">
+    <svg viewBox="0 0 24 24" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script>
+    // Random hero background from 3 images
+    const heroImages = ['images/hero-1.jpg','images/hero-2.jpg','images/hero-3.jpg'];
+    const hero = document.querySelector('.hero');
+    hero.style.backgroundImage = 'url(' + heroImages[Math.floor(Math.random() * heroImages.length)] + ')';
+
+    // Hamburger
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const menuOverlay = document.getElementById('menuOverlay');
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      menuOverlay.classList.toggle('open');
+      document.body.style.overflow = menuOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMenu() {
+      hamburgerBtn.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // FAB
+    function toggleFab() { document.getElementById('fab').classList.toggle('open'); }
+    document.addEventListener('click', (e) => {
+      const fab = document.getElementById('fab');
+      if (!fab.contains(e.target)) fab.classList.remove('open');
+    });
+
+    // Lightbox
+    document.querySelectorAll('.crane-card-img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightboxImg').alt = img.alt;
+        document.getElementById('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Scroll to top
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Language
+    let currentLang = 'ru';
+    function toggleLang() {
+      currentLang = currentLang === 'ru' ? 'kz' : 'ru';
+      document.getElementById('lang-ru').className = currentLang === 'ru' ? 'active-lang' : 'inactive-lang';
+      document.getElementById('lang-kz').className = currentLang === 'kz' ? 'active-lang' : 'inactive-lang';
+      document.querySelectorAll('[data-ru]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+      });
+      try { localStorage.setItem('lang', currentLang); } catch(e) {}
+    }
+    try { if (localStorage.getItem('lang') === 'kz') toggleLang(); } catch(e) {}
+  </script>
+</body>
+</html>
