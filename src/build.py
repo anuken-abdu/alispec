@@ -88,10 +88,21 @@ def fleet_cards(items=None):
 def compare_table(kz=None):
     L = kz or {"crane": "Кран поднимает", "boom": "Вылет стрелы", "deck": "Длина борта", "board": "Борт везёт", "btype": "Тип стрелы", "t": "т", "m": "м"}
     head = "".join(f'<th scope="col"><a href="{furl(f)}">{f["t"]} {L["t"]}</a></th>' if not kz else f'<th scope="col">{f["t"]} {L["t"]}</th>' for f in FLEET)
-    def row(k, unit): return f'<tr><th scope="row">{L[k]}</th>' + "".join(f"<td>{f[k]} {unit}</td>" for f in FLEET) + "</tr>"
-    bt = f'<tr><th scope="row">{L["btype"]}</th>' + "".join(f'<td>{(kz["z"] if "Z" in f["boom_type"] else kz["tel"]) if kz else f["boom_type"].replace("Телескопическая ", "Телескоп. ")}</td>' for f in FLEET) + "</tr>"
-    return (f'<div class="tbl"><table><thead><tr><th scope="col">{"Манипулятор" if not kz else ""}</th>{head}</tr></thead><tbody>'
+    def row(k, unit): return f'<tr><th scope="row">{L[k]}</th>' + "".join(f"<td>{f[k]}&nbsp;{unit}</td>" for f in FLEET) + "</tr>"
+    btype = lambda f: (kz["z"] if "Z" in f["boom_type"] else kz["tel"]) if kz else f["boom_type"].replace("Телескопическая ", "Телескоп. ")
+    bt = f'<tr><th scope="row">{L["btype"]}</th>' + "".join(f"<td>{btype(f)}</td>" for f in FLEET) + "</tr>"
+    desk = (f'<div class="tbl tbl-d"><table><thead><tr><th scope="col">{"Манипулятор" if not kz else ""}</th>{head}</tr></thead><tbody>'
             f'{row("crane", L["t"])}{row("board", L["t"])}{row("deck", L["m"])}{row("boom", L["m"])}{bt}</tbody></table></div>')
+    # телефон: строки — модели, колонки — короткие параметры; подписи расшифрованы под таблицей
+    M = {"model": "Модель", "crane": "Кран", "board": "Борт", "deck": "Длина", "boom": "Стрела", "z": "Z-стрела", "tel": "телескоп.",
+         "note": "Кран — сколько поднимает кран, борт — сколько везёт кузов, длина — длина борта, стрела — вылет стрелы."}
+    if kz: M = {"model": "Модель", "crane": "Кран", "board": "Жүк", "deck": "Борт", "boom": "Жебе", "z": "Z-жебе", "tel": "телескоп.",
+                "note": "Кран — кран көтеретін салмақ, жүк — борт жүккөтергіштігі, борт — борт ұзындығы, жебе — жебе ұзындығы."}
+    rows = "".join(f'<tr><th scope="row">{"" if kz else f"<a href={chr(34)}{furl(f)}{chr(34)}>"}{f["t"]}&nbsp;{L["t"]}{"" if kz else "</a>"}<small>{M["z"] if "Z" in f["boom_type"] else M["tel"]}</small></th>'
+                   f'<td>{f["crane"]}&nbsp;{L["t"]}</td><td>{f["board"]}&nbsp;{L["t"]}</td><td>{f["deck"]}&nbsp;{L["m"]}</td><td>{f["boom"]}&nbsp;{L["m"]}</td></tr>' for f in FLEET)
+    mob = (f'<div class="tbl tbl-m"><table><thead><tr><th scope="col">{M["model"]}</th><th scope="col">{M["crane"]}</th><th scope="col">{M["board"]}</th>'
+           f'<th scope="col">{M["deck"]}</th><th scope="col">{M["boom"]}</th></tr></thead><tbody>{rows}</tbody></table><p class="tbl-n">{M["note"]}</p></div>')
+    return desk + mob
 
 def svc_cards(items=None):
     items = items or SERVICES; n = len(items)
@@ -276,7 +287,7 @@ def build_kz():
 <div class="hero-v">{img("hero", "Астанада 40 футтық контейнері бар 25 тонна манипулятор", "(max-width:767px) 100vw, 480px", eager=True)}</div></div></section>
 {perks}
 {sec(K["fleet"], '<div class="fcs">' + cards + "</div>", K["fleet_sub"], sid="tekhnika")}
-{sec(K["fleet"] + " — " + K["btype"].lower(), compare_table(L), alt=True)}
+{sec("Техниканы салыстыру", compare_table(L), alt=True)}
 {sec(K["services"], svc)}
 {sec(K["how"], steps_html(K["steps"]), alt=True)}
 {sec(K["why"], why)}
@@ -297,7 +308,8 @@ def build_fleet():
         svcs = [s for s in SERVICES if f["t"] in s["fit"]]
         faq = [(f"Сколько стоит аренда манипулятора {f['t']} тонн?", FAQ[1][1]), (f"Сколько поднимает манипулятор {f['t']} тонн?",
                 f"Кран поднимает до {f['crane']} т, борт перевозит до {f['board']} т. Длина борта — {f['deck']} м, вылет стрелы — {f['boom']} м."), FAQ[2], FAQ[3]]
-        rows = [("Грузоподъёмность крана", f"{f['crane']} т"), ("Грузоподъёмность борта", f"{f['board']} т"), ("Длина борта", f"{f['deck']} м"), ("Вылет стрелы", f"{f['boom']} м"), ("Тип стрелы", f["boom_type"])]
+        rows = [("Кран поднимает", f"{f['crane']}&nbsp;т"), ("Борт везёт", f"{f['board']}&nbsp;т"), ("Длина борта", f"{f['deck']}&nbsp;м"), ("Вылет стрелы", f"{f['boom']}&nbsp;м"),
+                ("Тип стрелы", f["boom_type"].replace("Телескопическая Z-образная", "Телескопическая,<br>Z-образная"))]
         tbl = '<div class="tbl tbl-s"><table><tbody>' + "".join(f'<tr><th scope="row">{a}</th><td>{b}</td></tr>' for a, b in rows) + "</tbody></table></div>"
         body = f'''{ph_hero(E(f["h1"]), E(f["lead"]), [("Техника", "/manipulyatory/"), (f["name"], url)], f"Здравствуйте! Нужен манипулятор {f['t']} тонн.", f["img"], f"Манипулятор {f['t']} тонн в Астане")}
 <section class="sec"><div class="wrap two"><div><h2>Характеристики</h2>{tbl}</div><div><h2>Для каких задач</h2>{checks(f["tasks"])}</div></div></section>
