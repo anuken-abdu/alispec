@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Генератор alispec.kz (аренда манипуляторов, Астана): python3 src/build.py → dist/
 Скорость: CSS встроен в каждую страницу, шрифты локальные (2 файла в первом экране), фото WebP с srcset,
-тег Google грузится после первого действия посетителя."""
+теги Google (Ads + Analytics) стоят в <head> каждой страницы."""
 import html, json, re, shutil, sys
 from datetime import date
 from pathlib import Path
@@ -49,7 +49,7 @@ def logo(dark=False):
             f'<span class="logo-t">Ali<i>Spec</i><small>манипуляторы</small></span></a>')
 
 def btns(msg=MSG, call="Позвонить", wtxt="WhatsApp"):
-    return (f'<div class="btns"><a class="btn btn-p" href="tel:{PHONE_TEL}" data-call>{ui("phone")}{call}</a>'
+    return (f'<div class="btns"><a class="btn btn-p" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{ui("phone")}{call}</a>'
             f'<a class="btn btn-w" {wa_attr(msg)}>{ui("wa")}{wtxt}</a></div>')
 
 def sec(title, inner, sub="", alt=False, sid="", link=None, cls=""):
@@ -81,7 +81,7 @@ def fleet_cards(items=None):
     for f in items or FLEET:
         out.append(f'''<article class="fc"><a class="fc-img" href="{furl(f)}">{img(f["img"], f"Манипулятор {f['t']} тонн в Астане", "(max-width:767px) 100vw, (max-width:1180px) 50vw, 340px")}</a>
 <div class="fc-b"><h3><a href="{furl(f)}">Манипулятор <b>{f["t"]}</b> тонн</a></h3>{specs_dl(f)}<p>{E(f["lead"])}</p>
-<div class="fc-a"><a class="btn btn-p btn-s" href="tel:{PHONE_TEL}" data-call>{ui("phone")}Заказать</a><a class="lnk" href="{furl(f)}">Подробнее {ui("arrow")}</a></div></div></article>''')
+<div class="fc-a"><a class="btn btn-p btn-s" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{ui("phone")}Заказать</a><a class="lnk" href="{furl(f)}">Подробнее {ui("arrow")}</a></div></div></article>''')
     n = len(out)
     return f'<div class="fcs fcs-{n}">' + "".join(out) + "</div>"
 
@@ -142,7 +142,7 @@ def lead_form(title="Заказать манипулятор", t=0):
     opts = '<option>Подберите за меня</option>' + "".join(f'<option{" selected" if f["t"] == t else ""}>Манипулятор {f["t"]} тонн</option>' for f in FLEET)
     return f'''<section class="sec sec-dark" id="zayavka"><div class="wrap lead">
 <div><h2>{title}</h2><p>Заполните форму — заявка откроется в WhatsApp. Или позвоните, ответим круглосуточно.</p>
-<a class="lead-ph" href="tel:{PHONE_TEL}" data-call>{ui("phone")}{PHONE_DISPLAY}</a><p class="lead-h">{ui("clock")}{HOURS}</p></div>
+<a class="lead-ph" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{ui("phone")}{PHONE_DISPLAY}</a><p class="lead-h">{ui("clock")}{HOURS}</p></div>
 <form class="form" data-lead novalidate>
 <div class="fld"><label for="fN">Имя</label><input id="fN" name="name" autocomplete="name"></div>
 <div class="fld"><label for="fP">Телефон</label><input id="fP" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+7"></div>
@@ -178,6 +178,18 @@ def nav_html():
 <li><a href="/ceny/">Цены</a></li><li><a href="/rayony/">Районы</a></li><li><a href="/kontakty/">Контакты</a></li><li><a class="lang" href="/kz/" hreflang="kk" lang="kk">ҚАЗ</a></li></ul>
 <div class="nav-m">{btns()}</div></nav>'''
 
+def gtag_head():
+    """Теги Google — сразу после <head> на каждой странице, как в инструкции Google (Google Ads + Google Analytics, общий dataLayer)."""
+    ids = [x for x in (TAG_ID, GA_TAG_ID) if x]
+    if not ids: return ""
+    src = "".join(f'<script async src="https://www.googletagmanager.com/gtm.js?id={i}"></script>\n' for i in ids)
+    out = src + "<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n</script>\n"
+    if GADS_ID and GADS_CALL_LABEL:
+        out += ("<!-- Event snippet for Интерактивные номера телефонов conversion page -->\n<script>\nfunction gtag_report_conversion(url) {\n  var done = false;\n  var callback = function () {\n    if (done) return; done = true;\n"
+                "    if (typeof(url) != 'undefined') {\n      window.location = url;\n    }\n  };\n  setTimeout(callback, 800); // звонок откроется, даже если тег Google заблокирован\n  gtag('event', 'conversion', {\n"
+                f"      'send_to': '{GADS_ID}/{GADS_CALL_LABEL}',\n      'value': 1.0,\n      'currency': 'USD',\n      'event_callback': callback\n  }});\n  return false;\n}}\n</script>\n")
+    return out
+
 def page(path, title, desc, body, schemas=(), crumbs=None, prio="0.7", lang="ru", preload=None, alt_kz=False):
     PAGES.append((path, prio))
     desc = fit(desc)
@@ -199,6 +211,7 @@ def page(path, title, desc, body, schemas=(), crumbs=None, prio="0.7", lang="ru"
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
+{gtag_head()}
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
@@ -218,14 +231,14 @@ def page(path, title, desc, body, schemas=(), crumbs=None, prio="0.7", lang="ru"
 <body>
 <a class="skip" href="#main">{"Мазмұнға өту" if lang == "kk" else "К содержимому"}</a>
 <header class="hdr"><div class="wrap hdr-in">{logo()}{nav_html()}
-<div class="hdr-c"><a class="hdr-ph" href="tel:{PHONE_TEL}" data-call>{PHONE_DISPLAY}<small>{"тәулік бойы" if lang == "kk" else "круглосуточно"}</small></a>
-<a class="hdr-call" href="tel:{PHONE_TEL}" data-call aria-label="Позвонить {PHONE_DISPLAY}">{ui("phone")}</a>
+<div class="hdr-c"><a class="hdr-ph" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{PHONE_DISPLAY}<small>{"тәулік бойы" if lang == "kk" else "круглосуточно"}</small></a>
+<a class="hdr-call" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)" aria-label="Позвонить {PHONE_DISPLAY}">{ui("phone")}</a>
 <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">{ui("menu")}{ui("close", "ui ui-x")}</button></div></div></header>
 <main id="main">
 {body}
 </main>
 <footer class="ftr"><div class="wrap ftr-g">
-<div class="ftr-a">{logo(True)}<p>Аренда кран-манипуляторов 7–25 тонн в Астане и в радиусе 100 км. {HOURS}.</p><a class="ftr-ph" href="tel:{PHONE_TEL}" data-call>{PHONE_DISPLAY}</a><p class="ftr-ad">{ui("pin")}Астана и пригороды до 100 км</p></div>
+<div class="ftr-a">{logo(True)}<p>Аренда кран-манипуляторов 7–25 тонн в Астане и в радиусе 100 км. {HOURS}.</p><a class="ftr-ph" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{PHONE_DISPLAY}</a><p class="ftr-ad">{ui("pin")}Астана и пригороды до 100 км</p></div>
 <div><p class="ftr-h">Техника</p><ul>{fl_f}<li><a href="/manipulyatory/">Сравнить модели</a></li></ul></div>
 <div><p class="ftr-h">Услуги</p><ul>{sv_f}</ul></div>
 <div><p class="ftr-h">Информация</p><ul><li><a href="/ceny/">Цены</a></li><li><a href="/rayony/">Районы</a></li><li><a href="/stati/">Статьи</a></li><li><a href="/kontakty/">Контакты</a></li><li><a href="/kz/" hreflang="kk">Қазақша</a></li><li><a href="/privacy-policy/">Конфиденциальность</a></li></ul></div>
@@ -278,7 +291,7 @@ def build_kz():
     L = {"crane": K["crane"], "boom": K["boom"], "deck": K["deck"], "board": K["board"], "btype": K["btype"], "z": K["z"], "tel": K["tel"], "t": K["t"], "m": K["m"]}
     msg = "Сәлеметсіз бе! Астанада манипулятор керек."
     cards = "".join(f'''<article class="fc"><div class="fc-img">{img(f["img"], f"{f['t']} тонна манипулятор, Астана", "(max-width:767px) 100vw, (max-width:1180px) 50vw, 340px")}</div>
-<div class="fc-b"><h3>{K["model"].format(t=f["t"])}</h3>{specs_dl(f, L)}<p>{E(f["kz_tasks"])}</p><div class="fc-a"><a class="btn btn-p btn-s" href="tel:{PHONE_TEL}" data-call>{ui("phone")}{K["order"]}</a></div></div></article>''' for f in FLEET)
+<div class="fc-b"><h3>{K["model"].format(t=f["t"])}</h3>{specs_dl(f, L)}<p>{E(f["kz_tasks"])}</p><div class="fc-a"><a class="btn btn-p btn-s" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{ui("phone")}{K["order"]}</a></div></div></article>''' for f in FLEET)
     perks = '<section class="perks"><div class="wrap"><ul>' + "".join(f'<li>{ph(i)}<span><b>{E(t)}</b><small>{E(s)}</small></span></li>' for (i, *_), (t, s) in zip(PERKS, K["perks"])) + "</ul></div></section>"
     svc = '<div class="scs">' + "".join(f'<div class="scd">{ph(s["icon"])}<b>{E(t)}</b><span>{E(d)}</span></div>' for s, (t, d) in zip(SERVICES, K["svc"])) + "</div>"
     why = '<div class="fac">' + "".join(f'<div><b>{E(t)}</b><p>{E(d)}</p></div>' for t, d in K["whys"]) + "</div>"
@@ -293,7 +306,7 @@ def build_kz():
 {sec(K["why"], why)}
 <section class="sec sec-alt"><div class="wrap"><div class="prose"><h2>{K["seo_h"]}</h2>{"".join(f"<p>{E(p)}</p>" for p in K["seo"])}<p><a href="/" hreflang="ru">{K["ru"]} →</a></p></div></div></section>
 <section class="sec sec-dark" id="zayavka"><div class="wrap lead"><div><h2>{K["contacts"]}</h2><p>{K["area"]}</p>
-<a class="lead-ph" href="tel:{PHONE_TEL}" data-call>{ui("phone")}{PHONE_DISPLAY}</a><p class="lead-h">{ui("clock")}{K["hours"]}</p>{btns(msg, K["call"], K["wa"])}</div></div></section>'''
+<a class="lead-ph" href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{ui("phone")}{PHONE_DISPLAY}</a><p class="lead-h">{ui("clock")}{K["hours"]}</p>{btns(msg, K["call"], K["wa"])}</div></div></section>'''
     page("/kz/", K["title"], K["desc"], body, [service_schema("Астанада манипулятор жалдау", "/kz/", K["lead"])], prio="0.8", lang="kk", preload="hero")
 
 def build_fleet():
@@ -375,7 +388,7 @@ def build_misc():
     page("/ceny/", f"Цены на аренду манипулятора в Астане | {BRAND}", "Стоимость аренды манипулятора в Астане: от чего зависит цена, модели 7–25 тонн. Расчёт по телефону и WhatsApp, круглосуточно.",
          body, [faq_schema(FAQ[:4])], crumbs=[("Цены", "/ceny/")], prio="0.8")
     body = f'''{ph_hero("Контакты", "Звоните или пишите в WhatsApp — отвечаем круглосуточно.", [("Контакты", "/kontakty/")])}
-<section class="sec"><div class="wrap cont"><div><span>Телефон и WhatsApp</span><a href="tel:{PHONE_TEL}" data-call>{PHONE_DISPLAY}</a></div><div><span>Режим работы</span><b>{HOURS}</b></div><div><span>Где работаем</span><b>Астана и до 100 км</b></div></div></section>
+<section class="sec"><div class="wrap cont"><div><span>Телефон и WhatsApp</span><a href="tel:{PHONE_TEL}" data-call onclick="return gtag_report_conversion(&#39;tel:{PHONE_TEL}&#39;)">{PHONE_DISPLAY}</a></div><div><span>Режим работы</span><b>{HOURS}</b></div><div><span>Где работаем</span><b>Астана и до 100 км</b></div></div></section>
 {geo_sec()}{lead_form()}'''
     page("/kontakty/", f"Контакты — {BRAND}, аренда манипуляторов в Астане", f"Телефон и WhatsApp {PHONE_DISPLAY}. Аренда манипуляторов в Астане и в радиусе 100 км, круглосуточно.", body, crumbs=[("Контакты", "/kontakty/")], prio="0.6")
     body = f'''<section class="phd phd-s"><div class="wrap">{crumbs_html([("Политика конфиденциальности", "/privacy-policy/")])}<h1>Политика конфиденциальности</h1></div></section>

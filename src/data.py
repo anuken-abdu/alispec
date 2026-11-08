@@ -10,8 +10,11 @@ PHONE_DISPLAY = "+7 701 210 42 82"
 PHONE_TEL = "+77012104282"
 WA_NUMBER = "77012104282"
 HOURS = "Круглосуточно, без выходных"
-GADS_ID = "AW-18074268629"      # тег со старого сайта
-GADS_CALL_LABEL = ""; GADS_WA_LABEL = ""; GADS_FORM_LABEL = ""
+TAG_ID = "GTM-N69MDVDF"         # тег Google Ads (конверсии)
+GA_TAG_ID = "GTM-WS4MQ86Q"      # тег Google Analytics
+GADS_ID = "AW-18563780202"      # аккаунт Google Ads — для меток конверсий
+GADS_CALL_LABEL = "zqKiCI-mxbQdEOqc85NF"   # «Интерактивные номера телефонов»
+GADS_WA_LABEL = ""; GADS_FORM_LABEL = ""
 DEV = ("Anuken", "https://wa.me/77074534518")
 
 def plural(n, one, few, many):

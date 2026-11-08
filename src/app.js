@@ -6,18 +6,9 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   function waUrl(t) { return "https://wa.me/" + CFG.wan + "?text=" + encodeURIComponent(t); }
 
-  /* ---------- тег Google: очередь сразу, сам скрипт — после первого действия посетителя (касание, прокрутка, клавиша) — не мешает скорости загрузки ---------- */
+  /* ---------- теги Google стоят в <head> каждой страницы (build.py → gtag_head) ---------- */
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-  if (CFG.ads) {
-    window.gtag("js", new Date()); window.gtag("config", CFG.ads);
-    var gl = false;
-    var loadTag = function () {
-      if (gl) return; gl = true;
-      var sc = document.createElement("script"); sc.async = true; sc.src = "https://www.googletagmanager.com/gtag/js?id=" + CFG.ads; document.head.appendChild(sc);
-    };
-    ["pointerdown", "keydown", "scroll", "touchstart"].forEach(function (ev) { window.addEventListener(ev, loadTag, { once: true, passive: true }); });
-  }
   /* ---------- конверсии Google Ads ---------- */
   function conv(kind) {
     var label = kind === "call" ? CFG.call : kind === "form" ? (CFG.form || CFG.wa) : CFG.wa;
@@ -27,8 +18,7 @@
     var a = e.target.closest("a");
     if (!a) return;
     var h = a.getAttribute("href") || "";
-    if (h.indexOf("tel:") === 0) conv("call");
-    else if (h.indexOf("wa.me") > -1) conv("wa");
+    if (h.indexOf("wa.me") > -1) conv("wa");   // звонок считает gtag_report_conversion из <head> (onclick на ссылках tel:)
   });
 
   /* ---------- меню ---------- */
